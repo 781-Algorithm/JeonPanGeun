@@ -12,13 +12,17 @@
 class Stack:
     def __init__(self):
         self.top = []
+        self.cnt = 0
 
     def push(self, item):
         self.top.append(item)
+        self.cnt += 1
 
     def pop(self):
         if not self.isEmpty():
+            self.cnt -= 1
             return self.top.pop(-1)
+
         else:
             print("Stack underflow")
             exit()
@@ -31,21 +35,26 @@ class Stack:
             exit()
 
     def isEmpty(self):
-        return len(self.top) == 0
+        return self.cnt == 0
+        # return len(self.top) == 0
+
 
     def size(self):
-        return len(self.top)
+        return self.cnt
 
 
 n = int(input())
 stack = []
+# stack2 = Stack()
 
 for _ in range(n):
     money = int(input())
 
     if money != 0:
         stack.append(money)
+        # stack2.push(money)
     elif money == 0:
         stack.pop(-1)
+        # stack2.pop()
 
 print(sum(stack))
