@@ -16,7 +16,7 @@ while True:
 
     # 현재 위치 청소
     if arr[x][y] == 0:
-        arr[x][y] == -1 # 방문 처리
+        arr[x][y] = -1 # 방문 처리
         cnt += 1
 
     for i in range(4):
@@ -34,7 +34,7 @@ while True:
                 flag = True
                 break
 
-    if not check:
+    if not flag:
         nx = x - dx
         ny = y - dy
         if (0 <= nx < n and \
